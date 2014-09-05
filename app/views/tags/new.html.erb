@@ -1,0 +1,19 @@
+<% content_for(:title, "New Tag | Coolest Recipes") %>
+<div class='container'>
+  <div class='row'>
+    <h1><%= image_tag('KidsCookingColor.jpg', class: 'pull-left', width: '400') %><b>Coolest Recipes</b></h1>
+  </div><br>
+  <h3>Create a New Tag</h3>
+
+  <%= render('layouts/errors', :object => @tag) %>
+
+  <br>
+  <h5><b>Enter text for the new tag:</b></h5><br>
+  <form action="/tags" method="post">
+    <%= render('form') %>
+    <br><br>
+    <button class="btn btn-success">Create Tag</button>
+  </form>
+  <br><br><br>
+  <h4><a href="/tags">See all tags</a></h4>
+</div>

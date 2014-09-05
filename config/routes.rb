@@ -1,56 +1,24 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  match('/', {:via => :get, :to => 'tags#list'})
+  # match('/', {:via => :get, :to => 'users#read'})
+  # match('users', {:via => :get, :to => 'users#read'})
+  # match('users', {:via => :post, :to => 'users#create'})
+  # match('users/new', {:via => :get, :to => 'users#new'})
+  # match('users/all', {:via => :get, :to => 'users#list'})
+  # match('users/:id/edit', {:via => :get, :to => 'users#get'})
+  # match('users/:id', {:via => :patch, :to => 'users#update'})
+  # match('users/:id', {:via => :delete, :to => 'users#destroy'})
+  # match('recipes', {:via => :get, :to => 'recipes#new'})
+  # match('recipes', {:via => :post, :to => 'recipes#create'})
+  # match('recipes/all', {:via => :get, :to => 'recipes#list'})
+  # match('recipes/:id/read', {:via => :get, :to => 'recipes#read'})
+  # match('recipes/:id/edit', {:via => :get, :to => 'recipes#edit'})
+  # match('recipes/:id', {:via => :patch, :to => 'recipes#update'})
+  # match('recipes/:id', {:via => :delete, :to => 'recipes#destroy'})
+  match('tags', {:via => :get, :to => 'tags#list'})
+  match('tags', {:via => :post, :to => 'tags#create'})
+  match('tags/new', {:via => :get, :to => 'tags#new'})
+  match('tags/:id/edit', {:via => :get, :to => 'tags#edit'})
+  match('tags/:id', {:via => :patch, :to => 'tags#update'})
+  match('tags/:id', {:via => :delete, :to => 'tags#destroy'})
 end

@@ -15,11 +15,21 @@ recipes\_RoR
 * ./LICENSE.md (using the "Unlicense" template)
 * ./Rakefile (configuration information used by 'rake' utility)
 * ./recipes_menu.rb (main application file)
-* ./app/models/contributor.rb (the Ruby implementation of the Contributor model)
-* ./app/models/cook.rb (the Ruby implementation of the Cook model)
+* ./app/controllers/recipes_controller.rb
+* ./app/controllers/tags_controller.rb
+* ./app/controllers/users_controller.rb
+* ./app/models/contributor.rb (the Ruby implementation of the Contributor model, child of User model)
+* ./app/models/cook.rb (the Ruby implementation of the Cook model, child of User model)
+* ./app/models/ingredient.rb (the Ruby implementation of the Ingredient model, used solely by Recipe model)
+* ./app/models/ingredients_recipe.rb (the Ruby implementation of the join table between Ingredient and Recipe models)
+* ./app/models/instruction.rb (the Ruby implementation of the Instruction model, used solely by Recipe model)
+* ./app/models/instructions_recipe.rb (the Ruby implementation of the join table between Instruction and Recipe models)
 * ./app/models/recipe.rb (the Ruby implementation of the Recipe model)
-* ./app/models/tried\_recipe.rb (the Ruby implementation of the TriedRecipe model)
-* ./app/models/user.rb (the Ruby implementation of the User model, parent to Contributor and Cook)
+* ./app/models/recipes_tab.rb (the Ruby implementation of the join table between Recipe and Tag models)
+* ./app/models/tag.rb (the Ruby implementation of the Tag model)
+* ./app/models/tried_recipe.rb (the Ruby implementation of the join table between Cook and Recipe models)
+* ./app/models/user.rb (the Ruby implementation of the User model, parent to Contributor and Cook models)
+* ./config/routes.rb (the Rails routes for user action requests)
 * ./db/config.yml (database configuration file showing the names of the development and test databases)
 * ./db/schema.rb (database schema)
 * ./db/migrate/*.rb (database migrations, which show the development of the database step-by-step. These are stored in the database as an additional table. The names are preceded by time stamps so they vary)
@@ -61,7 +71,7 @@ recipes\_RoR
 * Please note that this repository has only been tested with [Google Chrome browser](http://www.google.com/intl/en/chrome/browser) version 36.0.1985.125 on an iMac running [Apple](http://www.apple.com) OS X version 10.9.4 (Mavericks). Execution on any other computing platform, browser or operating system is at the user's risk.
 
 ## Description:
-This Ruby application implements a graphical user interface to a recipe management application. The user interface is divided into two parts: the actions a contributor performs to create recipes and see statistics about the recipes that have been tried, and the actions a cook performs to try and rate recipes.
+This Ruby application implements a graphical user interface to a recipe management application. The user interface is divided into two parts depending on the user type: the actions a contributor user performs to create recipes and see statistics about the recipes that have been tried, and the actions a cook user performs to try and rate recipes.
 
 ### The recipe contributor is able to:
 * Create a unique user name, a user password, and a screen name and have the date of the creation recorded. For the purposes of this very simple implementation, the password is not encrypted in the database. (This behavior is inherited from the User model.)
@@ -80,7 +90,7 @@ This Ruby application implements a graphical user interface to a recipe manageme
 * Search through recipes to find something with a particular ingredient or word.
 
 ### Constraints:
-* If someone wishes to be a contributor and a cook, they must have 2 different user names, passwords, screen names, etc. This is because I used single-table inheritance rather than creating separate tables for contributors and cooks.
+* If a user wishes to be both a contributor and a cook, they must have 2 different user names (user names are unique for all users, whether contributors or cooks). This is a constraint because I used single-table inheritance rather than a more flexible mechanism to distinguish between the two types of users.
 
 ##Thanks:
 * To my wonderful husband Steve Ward for his support and his incredible patience.

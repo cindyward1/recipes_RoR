@@ -7,5 +7,7 @@ describe Recipe do
   it { should have_many :ingredients }
   it { should have_many :instructions_recipes }
   it { should have_many :instructions }
+  it { should validate_presence_of :title }
+  it { should validate_uniqueness_of :title }
   it { should validate_presence_of :date_contributed }
 end
