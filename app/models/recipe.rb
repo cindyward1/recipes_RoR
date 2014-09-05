@@ -3,9 +3,9 @@ class Recipe < ActiveRecord::Base
   has_many :tried_recipes
   has_many :cooks, through: :tried_recipes
   has_and_belongs_to_many :tags
-  has_many :recipe_ingredients
-  has_many :ingredients, through: :recipe_ingredients
-  has_many :recipe_instructions
-  has_many :instructions, through: :recipe_instructions
+  has_many :ingredients_recipes
+  has_many :ingredients, through: :ingredients_recipes
+  has_many :instructions_recipes
+  has_many :instructions, through: :instructions_recipes
   validates :date_contributed, :presence => true
 end
