@@ -3,7 +3,7 @@
   <div class='row'>
     <h1><%= image_tag('KidsCookingColor.jpg', class: 'pull-left', width: '400') %><b>Coolest Recipes</b></h1>
   </div><br>
-  <h2><u>List of All Tags</u></h2>
+  <h3><u>List of All Tags</u></h3>
   <h5>(Click on a link to edit the tag text or delete the tag)</h5>
   <% if @tags.empty? %>
     <h3>There are no tags in the database</h3>
@@ -15,5 +15,6 @@
     </ul>
   <% end %>
   <br><br>
+  <hr>
   <h4><a href="/tags/new">Create a new tag</a></h4>
 </div>
