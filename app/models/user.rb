@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  self.inheritance_column = 'object_type'
 
   validates :user_name, :presence => true, :uniqueness => true,
             length: { minimum: 8, maximum: 16 }
