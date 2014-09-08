@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class RecipeUser < ActiveRecord::Base
   self.inheritance_column = 'object_type'
 
   validates :user_name, :presence => true, :uniqueness => true,

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908221742) do
+ActiveRecord::Schema.define(version: 20140908235402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20140908221742) do
   add_index "instructions_recipes", ["instruction_id"], name: "index_instructions_recipes_on_instruction_id", using: :btree
   add_index "instructions_recipes", ["recipe_id"], name: "index_instructions_recipes_on_recipe_id", using: :btree
 
+  create_table "recipe_users", force: true do |t|
+    t.string   "user_name"
+    t.string   "user_password"
+    t.string   "screen_name"
+    t.date     "date_joined"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "type"
+  end
+
   create_table "recipes", force: true do |t|
     t.string   "title"
     t.integer  "rating"
@@ -47,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140908221742) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "recipe_user_id"
   end
 
   create_table "recipes_tags", id: false, force: true do |t|
@@ -70,17 +81,7 @@ ActiveRecord::Schema.define(version: 20140908221742) do
     t.date     "date_tried"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
-  create_table "users", force: true do |t|
-    t.string   "type"
-    t.string   "user_name"
-    t.string   "user_password"
-    t.string   "screen_name"
-    t.date     "date_joined"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "recipe_user_id"
   end
 
 end

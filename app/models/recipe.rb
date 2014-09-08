@@ -1,5 +1,5 @@
 class Recipe < ActiveRecord::Base
-  belongs_to :contributor, foreign_key: :user_id
+  belongs_to :contributor, foreign_key: :recipe_user_id
   has_many :tried_recipes
   has_many :cooks, through: :tried_recipes
   has_and_belongs_to_many :tags

@@ -1,3 +1,3 @@
-class Contributor < User
-  has_many :recipes, foreign_key: :user_id
+class Contributor < RecipeUser
+  has_many :recipes, foreign_key: :recipe_user_id
 end

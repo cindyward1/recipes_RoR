@@ -1,0 +1,8 @@
+<label for="user_name" class="field"><span class="red">*</span> User Name (case-insensitive, must be unique and 8-16 characters)&nbsp</label>
+<% if !@user.nil? %>
+  <input id="user_name" class="field200" name="recipe_user[user_name]" type="text" value="<%= @user.user_name %>"><br><br>
+<% else %>
+  <input id="user_name" class="field200" name="recipe_user[user_name]" type="text"><br><br>
+<% end %>
+<label for="user_password" class="field"><span class="red">*</span> User Password (case-sensitive, must be 8-16 characters)&nbsp</label>
+<input id="user_password" class="field200" name="recipe_user[user_password]" type="password"><br>
