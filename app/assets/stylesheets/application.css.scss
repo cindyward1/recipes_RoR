@@ -15,3 +15,33 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+label.field {
+  text-align: right;
+  width: 400px;
+  float: left;
+  font-weight: bold;
+}
+
+input.field200 {
+  width: 200px;
+  float: left;
+}
+
+input.field400 {
+  width: 400px;
+  float: left;
+}
+
+a.white {
+  color: white
+}
+
+.red {
+  color: red
+}
+
+.smaller {
+  font-size: 75%;
+}
+

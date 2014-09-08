@@ -86,7 +86,6 @@ This Ruby application implements a graphical user interface to a recipe manageme
 * Try a recipe and have the date of the trial recorded.
 * Rate a recipe between 0 through 5 stars to share with others their opinion about it.
 * See recipes ordered by the number of stars they have to focus on the best ones.
-* See some new recipes mixed in with the highest-rated ones to try new recipes with no or few ratings.
 * Search through recipes to find something with a particular ingredient or word.
 
 ### Constraints and conditions:

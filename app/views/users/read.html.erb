@@ -1,0 +1,21 @@
+<% content_for(:title, "Welcome User | Coolest Recipes") %>
+<div class='container'>
+  <div class='row'>
+    <h1><%= image_tag('KidsCookingColor.jpg', class: 'pull-left', width: '400') %><b>Coolest Recipes</b></h1>
+  </div><br>
+  <h3><u>Welcome <%= @user.type %> <%= @user.screen_name %></h3><br>
+
+  <%= render('layouts/errors', :object => @tag) %>
+
+  <h5><b>What would you like to do today?</b></h5><br>
+  <% if @user.type == "Contributor" %>
+    <h3>Recipe Contributor!</h3>
+  <% elsif @user.type == "Cook" %>
+    <h3>Recipe User/Cook!</h3>
+  <% end %>
+  <br><br><br>
+  <hr>
+  <h4><a href="/">Login to Coolest Recipes</a></h4>
+  <h4><a href="/users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>
+  <h4><a href="/users/all">See all Coolest Recipes users</a></h4>
+</div>
