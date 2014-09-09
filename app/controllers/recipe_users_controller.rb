@@ -20,7 +20,7 @@ class RecipeUsersController < ApplicationController
     @user = RecipeUser.new(params[:recipe_user])
     if @user.save
       flash[:notice] = "The user was saved to the database"
-      redirect_to("/#{@user.id}")
+      redirect_to("/")
     else
       render('recipe_users/new.html.erb')
     end
