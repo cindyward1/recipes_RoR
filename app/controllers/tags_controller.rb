@@ -6,6 +6,7 @@ class TagsController < ApplicationController
   end
 
   def create
+    params[:tag_text].downcase!
     @tag = Tag.new(:tag_text => params[:tag_text])
     if @tag.save
       flash[:notice] = "The tag was saved to the database"
@@ -27,6 +28,7 @@ class TagsController < ApplicationController
 
   def update
     @tag = Tag.find(params[:id])
+    params[:tag_text].downcase!
     if @tag.update(:tag_text => params[:tag_text])
       flash[:notice] = "The tag was updated in the database"
       redirect_to("/tags")

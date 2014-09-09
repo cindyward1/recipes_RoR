@@ -1,16 +1,17 @@
-<% content_for(:title, "Edit User | Coolest Recipes") %>
+<% content_for(:title, "Edit Tag | Coolest Recipes") %>
 <div class='container'>
   <div class='row'>
     <h1><%= image_tag('KidsCookingColor.jpg', class: 'pull-left', width: '400') %><b>Coolest Recipes</b></h1>
   </div><br>
   <h3><u>Edit an Existing User</u></h3>
 
-  <%= render('layouts/errors', :object => @user) %>
+  <%= render('layouts/errors', :object => @tag) %>
 
    <h5><b>Enter a new password or screen name:</b></h5><br>
   <form action="/tags/<%= @tag.id %>" method="post">
     <input name="_method" type="hidden" value="patch">
-    <%= render('form1a') %>
+    <%= render('form') %>
+    <br><br>
     <button class="btn btn-warning">Update Tag</button>
   </form><br>
   <button class="btn btn-danger"><a href="/tags/<%= @tag.id %>" class="white"
@@ -18,6 +19,6 @@
         data-method="delete" rel="nofollow">Delete Tag</a></button>
 <br><br><br>
 <hr>
-<h4><a href="/users/new">Create a new user</a></h4>
-<h4><a href="/users/all">See all users</a></h4>
+<h4><a href="/tags/new">Create a tag</a></h4>
+<h4><a href="/tags/all">See all tags</a></h4>
 </div>

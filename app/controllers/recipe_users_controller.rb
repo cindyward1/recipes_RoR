@@ -16,16 +16,18 @@ class RecipeUsersController < ApplicationController
   def create
     @today = Date.today.strftime('%Y-%m-%d')
     params[:recipe_user][:date_joined] = @today
+    params[:recipe_user][:user_name].downcase!
     @user = RecipeUser.new(params[:recipe_user])
     if @user.save
       flash[:notice] = "The user was saved to the database"
-      redirect_to("/")
+      redirect_to("/#{@user.id}")
     else
       render('recipe_users/new.html.erb')
     end
   end
 
   def read
+    params[:recipe_user][:user_name].downcase!
     @user = RecipeUser.find_by(:user_name => params[:recipe_user][:user_name])
     @current_user = @user
     if @user.nil? || @user.user_password != params[:recipe_user][:user_password]
