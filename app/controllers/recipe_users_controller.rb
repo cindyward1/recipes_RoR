@@ -39,9 +39,9 @@ class RecipeUsersController < ApplicationController
     end
   end
 
-  def list
+  def index
     @users = RecipeUser.all.order(:user_name)
-    render('recipe_users/all.html.erb')
+    render('recipe_users/index.html.erb')
   end
 
   def edit

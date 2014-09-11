@@ -16,9 +16,9 @@ class TagsController < ApplicationController
     end
   end
 
-  def list
+  def index
     @tags = Tag.all.order(:tag_text)
-    render('tags/all.html.erb')
+    render('tags/index.html.erb')
   end
 
   def edit
