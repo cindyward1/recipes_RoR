@@ -10,7 +10,7 @@ class TagsController < ApplicationController
     @tag = Tag.new(:tag_text => params[:tag_text])
     if @tag.save
       flash[:notice] = "The tag was saved to the database"
-      redirect_to("/tags")
+      redirect_to("/tags/index")
     else
       render('tags/new.html.erb')
     end
@@ -31,7 +31,7 @@ class TagsController < ApplicationController
     params[:tag_text].downcase!
     if @tag.update(:tag_text => params[:tag_text])
       flash[:notice] = "The tag was updated in the database"
-      redirect_to("/tags")
+      redirect_to("/tags/index")
     else
       render('tag/edit.html.erb')
     end
@@ -41,7 +41,7 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:id])
     @tag.destroy
     flash[:notice] = "The tag was deleted from the database"
-    redirect_to('/tags')
+    redirect_to('/tags/index')
   end
 
 end

@@ -26,7 +26,7 @@ class RecipeUsersController < ApplicationController
     end
   end
 
-  def read
+  def show
     params[:recipe_user][:user_name].downcase!
     @user = RecipeUser.find_by(:user_name => params[:recipe_user][:user_name])
     @current_user = @user
@@ -35,7 +35,7 @@ class RecipeUsersController < ApplicationController
       render('recipe_users/login.html.erb')
     else
       flash[:alert] = ""
-      render('recipe_users/read.html.erb')
+      render('recipe_users/show.html.erb')
     end
   end
 
@@ -63,7 +63,7 @@ class RecipeUsersController < ApplicationController
     @user = RecipeUser.find(params[:id])
     @user.destroy
     flash[:notice] = "The user was deleted from the database"
-    redirect_to('/recipe_users/all')
+    redirect_to('/recipe_users/index')
   end
 
 end

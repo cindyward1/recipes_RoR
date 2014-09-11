@@ -1,3 +1,5 @@
+
+
 <% content_for(:title, "Welcome User | Coolest Recipes") %>
 <div class='container'>
   <div class='row'>
@@ -11,13 +13,13 @@
   <% if @user.type == "Contributor" %>
     <ul>
       <li><a href="/recipes">Create a new recipe</a></li>
-      <li><a href="/recipes/all">See/edit/delete your contributed recipes</a></li>
+      <li><a href="/recipes/index">See/edit/delete your contributed recipes</a></li>
       <li><a href="/tags/new">Create a new recipe tag
-      <li><a href="/tags">See/edit/delete all available recipe tags</a></li>
+      <li><a href="/tags/index">See/edit/delete all available recipe tags</a></li>
     </ul>
   <% elsif @user.type == "Cook" %>
     <ul>
-      <li><a href="/tags">See all recipe tags to select a tagged recipe to try</a></li>
+      <li><a href="/tags/index">See all recipe tags to select a tagged recipe to try</a></li>
       <li><a href="/recipe/index">See all recipes to select one to try</a></li>
     </ul>
   <% end %>

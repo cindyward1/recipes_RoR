@@ -3,11 +3,11 @@
   <div class='row'>
     <h1><%= image_tag('KidsCookingColor.jpg', class: 'pull-left', width: '400') %><b>Coolest Recipes</b></h1>
   </div><br>
-  <h3><u>Edit an Existing User</u></h3>
+  <h3><u>Edit an Existing Tag</u></h3>
 
   <%= render('layouts/errors', :object => @tag) %>
 
-   <h5><b>Enter a new password or screen name:</b></h5><br>
+   <h5><b>Enter new tag text:</b></h5><br>
   <form action="/tags/<%= @tag.id %>" method="post">
     <input name="_method" type="hidden" value="patch">
     <%= render('form') %>
