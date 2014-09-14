@@ -4,7 +4,7 @@ class RecipeUsersController < ApplicationController
 
   def login
     session[:current_user_id] = nil
-    @user = RecipeUser.new
+    @user = nil
     render('recipe_users/login.html.erb')
   end
 
@@ -49,6 +49,11 @@ class RecipeUsersController < ApplicationController
   end
 
   def index
+    if session[:current_user_id].nil?
+      @user = RecipeUser.new
+    else
+      @user = RecipeUser.find(session[:current_user_id])
+    end
     @users = RecipeUser.all.order(:user_name)
     render('recipe_users/index.html.erb')
   end

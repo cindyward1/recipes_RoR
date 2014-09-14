@@ -1,24 +1,20 @@
 <% content_for(:title, "Register | Coolest Recipes") %>
-<div class='container'>
-  <div class='row'>
-    <h1><%= image_tag('KidsCookingColor.jpg', class: 'pull-left', width: '400') %><b>Coolest Recipes</b></h1>
-  </div><br>
-  <h3><u>Register a New User</u></h3>
 
-  <%= render('layouts/errors', :object => @user) %>
+<h3><u>Register a New User</u></h3>
 
-  <h5><b>Enter your new Coolest Recipes user name, password, screen name, and user type:</b> <span class="red">(* Required)</span></h5><br>
-  <form action="/recipe_users" method="post">
-    <%= render('form1') %>
-    <%= render('form2') %>
-    <label for="type" class="field"><span class="red">*</span> You are a   &nbsp</label>
-    <input id="type" name="recipe_user[type]" type="radio" value="Contributor" required><b>  &nbspRecipe Contributor&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>
-    <input id="type" name="recipe_user[type]" type="radio" value="Cook" required checked><b>  &nbspRecipe User/Cook</b>
-    <br><br>
-    <button class="btn btn-success">Create New User</button>
-  </form>
-  <br><br><br>
-  <hr>
-  <h4><a href="/">Login to Coolest Recipes</a></h4>
-  <h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
-</div>
+<%= render('layouts/errors', :object => @user) %>
+
+<h5><b>Enter your new Coolest Recipes user name, password, screen name, and user type:</b> <span class="red">(* Required)</span></h5><br>
+<form action="/recipe_users" method="post">
+  <%= render('form1') %>
+  <%= render('form2') %>
+  <label for="type" class="field"><span class="red">*</span> You are a   &nbsp</label>
+  <input id="type" name="recipe_user[type]" type="radio" value="Contributor" required><b>  &nbspRecipe Contributor&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b>
+  <input id="type" name="recipe_user[type]" type="radio" value="Cook" required checked><b>  &nbspRecipe User/Cook</b>
+  <br><br>
+  <button class="btn btn-success">Create New User</button>
+</form>
+<br><br><br>
+<hr>
+<h4><a href="/">Login to Coolest Recipes</a></h4>
+<h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>

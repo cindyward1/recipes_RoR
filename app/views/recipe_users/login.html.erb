@@ -1,20 +1,16 @@
 <% content_for(:title, "User Login | Coolest Recipes") %>
-<div class='container'>
-  <div class='row'>
-    <h1><%= image_tag('KidsCookingColor.jpg', class: 'pull-left', width: '400') %><b>Coolest Recipes</b></h1>
-  </div><br>
-  <h3><u>User Login</u></h3>
 
-  <%= render('layouts/errors', :object => @user) %>
+<h3><u>User Login</u></h3>
 
-  <h5><b>Enter your Coolest Recipes user name and password:</b> <span class="red">(* Required)</span></h5><br>
-  <form action="/recipe_users" method="submit">
-    <%= render('form1') %>
-    <br><br>
-    <button class="btn btn-success" >Login</button>
-  </form>
+<%= render('layouts/errors', :object => @user) %>
+
+<h5><b>Enter your Coolest Recipes user name and password:</b> <span class="red">(* Required)</span></h5><br>
+<form action="/recipe_users" method="submit">
+  <%= render('form1') %>
   <br><br>
-  <hr>
-  <h4><a href="/recipe_users/new">Register with Coolest Recipes</a></h4>
-  <h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
-</div>
+  <button class="btn btn-success" >Login</button>
+</form>
+<br><br>
+<hr>
+<h4><a href="/recipe_users/new">Register with Coolest Recipes</a></h4>
+<h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>

@@ -11,7 +11,19 @@
 <%= flash[:alert] %>
 <%= flash[:notice] %>
 
+<div class='container'>
+  <div class='row'>
+    <h1><%= image_tag('KidsCookingColor.jpg', class: 'pull-left', width: '400') %><b>Coolest Recipes</b></h1>
+    <h4><span class="smaller">Current user:&nbsp&nbsp</span>
+      <% if @user.nil? || @user.user_name.nil? %>
+        <u>No user logged in yet</u>
+      <% else %>
+        <u><%= @user.screen_name %></u>, <%= @user.type %>
+      <% end %>
+  </div><br>
+
 <%= yield %>
 
+</div>
 </body>
 </html>

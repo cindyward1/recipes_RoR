@@ -25,26 +25,26 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
     @user = RecipeUser.find(session[:current_user_id])
+    @recipe = Recipe.find(params[:id])
     render('recipes/show.html.erb')
   end
 
   def index
-    @recipes = Recipe.all.order(:title)
     @user = RecipeUser.find(session[:current_user_id])
+    @recipes = Recipe.all.order(:title)
     render('recipes/index.html.erb')
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
     @user = RecipeUser.find(session[:current_user_id])
+    @recipe = Recipe.find(params[:id])
     render('recipes/edit.html.erb')
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
     @user = RecipeUser.find(session[:current_user_id])
+    @recipe = Recipe.find(params[:id])
     params[:recipe][:title].upcase!
     if @recipe.update(params[:recipe])
       flash[:notice] = "The recipe was updated in the database"
@@ -55,8 +55,8 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
     @user = RecipeUser.find(session[:current_user_id])
+    @recipe = Recipe.find(params[:id])
     @recipe.destroy
     flash[:notice] = "The recipe was deleted from the database"
     redirect_to('/recipes/index')

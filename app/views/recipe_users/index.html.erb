@@ -1,23 +1,19 @@
 <% content_for(:title, "All Users | Coolest Recipes") %>
-<div class='container'>
-  <div class='row'>
-    <h1><%= image_tag('KidsCookingColor.jpg', class: 'pull-left', width: '400') %><b>Coolest Recipes</b></h1>
-  </div><br>
-  <h3><u>List of All Users</u></h3>
-  <h5>(Click on a link to edit the user password or screen name or to delete the user)</h5>
-  <% if @users.empty? %>
-    <h3>There are no users in the database</h3>
-  <% else %>
-    <ul>
-      <% @users.each do |user| %>
-        <li><h4><%= user.screen_name %> <span class="smaller">(<a href="/recipe_users/<%= user.id %>/edit">'<%= user.user_name %>'</a>, <%= user.type %>, joined on <%= user.date_joined %>)</span></h4></li>
-      <% end %>
-    </ul>
-  <% end %>
-  <br><br>
-  <hr>
-  <h4><a href="/">Login to Coolest Recipes</a></h4>
-  <h4><a href="/recipe_users/new">Register with Coolest Recipes</a></h4>
-  <h4><a href="/recipe_users">Go to Welcome User menu</a></h4>
-  <h4><a href="/">Logoff from Coolest Recipes</a></h4>
-</div>
+  
+<h3><u>List of All Users</u></h3>
+<h5>(Click on a link to edit the user password or screen name or to delete the user)</h5>
+<% if @users.empty? %>
+  <h3>There are no users in the database</h3>
+<% else %>
+  <ul>
+    <% @users.each do |user| %>
+      <li><h4><%= user.screen_name %> <span class="smaller">(<a href="/recipe_users/<%= user.id %>/edit">'<%= user.user_name %>'</a>, <%= user.type %>, joined on <%= user.date_joined %>)</span></h4></li>
+    <% end %>
+  </ul>
+<% end %>
+<br><br>
+<hr>
+<h4><a href="/">Login to Coolest Recipes</a></h4>
+<h4><a href="/recipe_users/new">Register with Coolest Recipes</a></h4>
+<h4><a href="/recipe_users">Go to Welcome User menu</a></h4>
+<h4><a href="/">Logoff from Coolest Recipes</a></h4>

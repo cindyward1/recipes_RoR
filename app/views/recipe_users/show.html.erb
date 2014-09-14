@@ -1,31 +1,25 @@
-
-
 <% content_for(:title, "Welcome User | Coolest Recipes") %>
-<div class='container'>
-  <div class='row'>
-    <h1><%= image_tag('KidsCookingColor.jpg', class: 'pull-left', width: '400') %><b>Coolest Recipes</b></h1>
-  </div><br>
-  <h3><u>Welcome <%= @user.type %> <%= @user.screen_name %></h3><br>
 
-  <%= render('layouts/errors', :object => @user) %>
+<h3><u>Welcome, <%= @user.screen_name %>, <%= @user.type %></h3><br>
 
-  <h5><b>What would you like to do today?</b></h5>
-  <% if @user.type == "Contributor" %>
-    <ul>
-      <li><a href="/recipes">Create a new recipe</a></li>
-      <li><a href="/recipes/index">See/edit/delete your contributed recipes</a></li>
-      <li><a href="/tags/new">Create a new recipe tag
-      <li><a href="/tags/index">See/edit/delete all available recipe tags</a></li>
-    </ul>
-  <% elsif @user.type == "Cook" %>
-    <ul>
-      <li><a href="/tags/index">See all recipe tags to select a tagged recipe to try</a></li>
-      <li><a href="/recipes/index">See all recipes to select one to try or rate</a></li>
-    </ul>
-  <% end %>
-  <br><br><br>
-  <hr>
-  <h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>
-  <h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
-  <h4><a href="/">Logoff from Coolest Recipes</a></h4>
-</div>
+<%= render('layouts/errors', :object => @user) %>
+
+<h5><b>What would you like to do today?</b></h5>
+<% if @user.type == "Contributor" %>
+  <ul>
+    <li><a href="/recipes">Create a new recipe</a></li>
+    <li><a href="/recipes/index">See all recipes</a></li>
+    <li><a href="/tags/new">Create a new recipe tag
+    <li><a href="/tags/index">See all recipe tags</a></li>
+  </ul>
+<% elsif @user.type == "Cook" %>
+  <ul>
+    <li><a href="/recipes/index">See all recipes to select one to try or rate</a></li>
+    <li><a href="/tags/index">See all recipe tags to select a tagged recipe to try</a></li>
+  </ul>
+<% end %>
+<br><br><br>
+<hr>
+<h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
+<h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>
+<h4><a href="/">Logoff from Coolest Recipes</a></h4>

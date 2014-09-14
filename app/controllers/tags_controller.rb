@@ -1,11 +1,13 @@
 class TagsController < ApplicationController
 
   def new
+    @user = RecipeUser.find(session[:current_user_id])
     @tag = Tag.new
     render('tags/new.html.erb')
   end
 
   def create
+    @user = RecipeUser.find(session[:current_user_id])
     params[:tag_text].downcase!
     @tag = Tag.new(:tag_text => params[:tag_text])
     if @tag.save
@@ -17,16 +19,19 @@ class TagsController < ApplicationController
   end
 
   def index
+    @user = RecipeUser.find(session[:current_user_id])
     @tags = Tag.all.order(:tag_text)
     render('tags/index.html.erb')
   end
 
   def edit
+    @user = RecipeUser.find(session[:current_user_id])
     @tag = Tag.find(params[:id])
     render('tags/edit.html.erb')
   end
 
   def update
+    @user = RecipeUser.find(session[:current_user_id])
     @tag = Tag.find(params[:id])
     params[:tag_text].downcase!
     if @tag.update(:tag_text => params[:tag_text])
@@ -38,6 +43,7 @@ class TagsController < ApplicationController
   end
 
   def destroy
+    @user = RecipeUser.find(session[:current_user_id])
     @tag = Tag.find(params[:id])
     @tag.destroy
     flash[:notice] = "The tag was deleted from the database"

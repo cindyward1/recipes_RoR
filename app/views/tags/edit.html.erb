@@ -1,24 +1,26 @@
 <% content_for(:title, "Edit Tag | Coolest Recipes") %>
-<div class='container'>
-  <div class='row'>
-    <h1><%= image_tag('KidsCookingColor.jpg', class: 'pull-left', width: '400') %><b>Coolest Recipes</b></h1>
-  </div><br>
-  <h3><u>Edit an Existing Tag</u></h3>
 
-  <%= render('layouts/errors', :object => @tag) %>
+<h3><u>Edit an Existing Tag</u></h3>
 
-   <h5><b>Enter new tag text:</b></h5><br>
-  <form action="/tags/<%= @tag.id %>" method="post">
-    <input name="_method" type="hidden" value="patch">
-    <%= render('form') %>
-    <br><br>
-    <button class="btn btn-warning">Update Tag</button>
-  </form><br>
-  <button class="btn btn-danger"><a href="/tags/<%= @tag.id %>" class="white"
-        data-confirm="Are you sure you want to delete this tag?"
-        data-method="delete" rel="nofollow">Delete Tag</a></button>
+<%= render('layouts/errors', :object => @tag) %>
+
+ <h5><b>Enter new tag text:</b></h5><br>
+<form action="/tags/<%= @tag.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <%= render('form') %>
+  <br><br>
+  <button class="btn btn-warning">Update Tag</button>
+</form><br>
+<button class="btn btn-danger"><a href="/tags/<%= @tag.id %>" class="white"
+      data-confirm="Are you sure you want to delete this tag?"
+      data-method="delete" rel="nofollow">Delete Tag</a></button>
 <br><br><br>
 <hr>
-<h4><a href="/tags/new">Create a tag</a></h4>
 <h4><a href="/tags/index">See all tags</a></h4>
-</div>
+<h4><a href="/tags/new">Create a tag</a></h4>
+<h4><a href="/recipes/index">See all the Coolest Recipes</a></h4>
+<h4><a href="/recipes">Add a New Recipe</a></h4>
+<h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
+<h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>
+<h4><a href="/recipe_users">Go to Welcome User menu</a></h4>
+<h4><a href="/">Logoff from Coolest Recipes</a></h4>

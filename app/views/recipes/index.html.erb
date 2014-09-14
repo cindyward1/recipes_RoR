@@ -1,30 +1,31 @@
 <% content_for(:title, "All Recipes | Coolest Recipes") %>
-<div class='container'>
-  <div class='row'>
-    <h1><%= image_tag('KidsCookingColor.jpg', class: 'pull-left', width: '400') %><b>Coolest Recipes</b></h1>
-  </div><br>
-  <h3><u>List of All Recipes</u></h3>
-  <h5>(Click on a link to edit or delete the recipe)</h5>
-  <% if @recipes.empty? %>
-    <h3>There are no recipes in the database</h3>
-  <% else %>
-    <ul>
-      <% @recipes.each do |recipe| %>
-        <li><h4><a href="/recipes/<%= recipe.id %>/edit">'<%= recipe.title %>'</a>, <span class="smaller">
-          <% if (1..5).include?(recipe.rating) %>
-            rated <%= recipe.rating %> star(s), 
-          <% else %>
-            not yet rated, 
-          <% end %>
-          contributed on <%= recipe.date_contributed %> by '<%= recipe.contributor.user_name %>'</span></h4></li>
-      <% end %>
-    </ul>
-  <% end %>
-  <br><br>
-  <hr>
-  <h4><a href="/recipes">Add a New Recipe</a></h4>
-  <h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>
-  <h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
-  <h4><a href="/recipe_users">Go to Welcome User menu</a></h4>
-  <h4><a href="/">Logoff from Coolest Recipes</a></h4>
-</div>
+
+<h3><u>List of All Recipes</u></h3>
+<h5>(Click on a link to edit or delete the recipe)</h5>
+<% if @recipes.empty? %>
+  <h3>There are no recipes in the database</h3>
+<% else %>
+  <ul>
+    <% @recipes.each do |recipe| %>
+      <li><h4><a href="/recipes/<%= recipe.id %>/edit">'<%= recipe.title %>'</a>, <span class="smaller">
+        <% if (1..5).include?(recipe.rating) %>
+          rated <%= recipe.rating %> star(s), 
+        <% else %>
+          not yet rated, 
+        <% end %>
+        contributed on <%= recipe.date_contributed %> by 
+        <% if !recipe.contributor.nil? %>
+          '<%= recipe.contributor.user_name %>'
+        <% else %>
+          'Contributor no longer registered'
+         <% end %></span></h4></li>
+    <% end %>
+  </ul>
+<% end %>
+<br><br>
+<hr>
+<h4><a href="/tags/index">See all tags</a></h4>
+<h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
+<h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>
+<h4><a href="/recipe_users">Go to Welcome User menu</a></h4>
+<h4><a href="/">Logoff from Coolest Recipes</a></h4>

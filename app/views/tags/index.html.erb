@@ -1,20 +1,20 @@
 <% content_for(:title, "All Tags | Coolest Recipes") %>
-<div class='container'>
-  <div class='row'>
-    <h1><%= image_tag('KidsCookingColor.jpg', class: 'pull-left', width: '400') %><b>Coolest Recipes</b></h1>
-  </div><br>
-  <h3><u>List of All Tags</u></h3>
-  <h5>(Click on a link to edit the tag text or delete the tag)</h5>
-  <% if @tags.empty? %>
-    <h3>There are no tags in the database</h3>
-  <% else %>
-    <ul>
-      <% @tags.each do |tag| %>
-        <li><h3><a href="/tags/<%= tag.id %>/edit"><%= tag.tag_text %></h3></li>
-      <% end %>
-    </ul>
-  <% end %>
-  <br><br>
-  <hr>
-  <h4><a href="/tags/new">Create a new tag</a></h4>
-</div>
+
+<h3><u>List of All Tags</u></h3>
+<h5>(Click on a link to edit the tag text or delete the tag)</h5>
+<% if @tags.empty? %>
+  <h3>There are no tags in the database</h3>
+<% else %>
+  <ul>
+    <% @tags.each do |tag| %>
+      <li><h3><a href="/tags/<%= tag.id %>/edit"><%= tag.tag_text %></h3></li>
+    <% end %>
+  </ul>
+<% end %>
+<br><br>
+<hr>
+<h4><a href="/recipes/index">See all the Coolest Recipes</a></h4>
+<h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
+<h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>
+<h4><a href="/recipe_users">Go to Welcome User menu</a></h4>
+<h4><a href="/">Logoff from Coolest Recipes</a></h4>

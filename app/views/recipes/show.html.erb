@@ -1,21 +1,14 @@
-
-
 <% content_for(:title, "Show Recipe | Coolest Recipes") %>
-<div class='container'>
-  <div class='row'>
-    <h1><%= image_tag('KidsCookingColor.jpg', class: 'pull-left', width: '400') %><b>Coolest Recipes</b></h1>
-  </div><br>
   
-  <%= render('layouts/errors', :object => @user) %>
+<%= render('layouts/errors', :object => @user) %>
 
-  <h5><b>The recipe:</b></h5>
-  <%= render('form1') %>
-  <br><br><br>
-  <hr>
-  <h4><a href="/recipe/index">See all the Coolest Recipes</a></h4>
-  <h4><a href="/recipes">Add a New Recipe</a></h4>
-  <h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>
-  <h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
-  <h4><a href="/recipe_users">Go to Welcome User menu</a></h4>
-  <h4><a href="/">Logoff from Coolest Recipes</a></h4>
-</div>
+<h5><b>The recipe:</b></h5>
+<%= render('form1') %>
+<br><br><br>
+<hr>
+<h4><a href="/recipes/index">See all the Coolest Recipes</a></h4>
+<h4><a href="/tags/index">See all tags</a></h4>
+<h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
+<h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>
+<h4><a href="/recipe_users">Go to Welcome User menu</a></h4>
+<h4><a href="/">Logoff from Coolest Recipes</a></h4>
