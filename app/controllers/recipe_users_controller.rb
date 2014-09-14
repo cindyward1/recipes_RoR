@@ -3,6 +3,7 @@ require "date"
 class RecipeUsersController < ApplicationController
 
   def login
+    session[:current_user_id] = nil
     @user = RecipeUser.new
     render('recipe_users/login.html.erb')
   end
@@ -27,13 +28,22 @@ class RecipeUsersController < ApplicationController
   end
 
   def show
-    params[:recipe_user][:user_name].downcase!
-    @user = RecipeUser.find_by(:user_name => params[:recipe_user][:user_name])
-    if @user.nil? || @user.user_password != params[:recipe_user][:user_password]
-      flash[:alert] = "User name not found or password didn't match stored value"
-      render('recipe_users/login.html.erb')
+    if session[:current_user_id].nil? && !params[:recipe_user].nil?
+      params[:recipe_user][:user_name].downcase!
+      @user = RecipeUser.find_by(:user_name => params[:recipe_user][:user_name])
+      if @user.nil? || @user.user_password != params[:recipe_user][:user_password]
+        flash[:alert] = "User name not found or password didn't match stored value"
+        render('recipe_users/login.html.erb')
+      else
+        flash[:alert] = ""
+        session[:current_user_id] = @user.id
+        render('recipe_users/show.html.erb')
+      end
+    elsif session[:current_user_id].nil?
+      flash[:alert] = "Please login before going to the Welcome User menu"
+      redirect_to("/")
     else
-      flash[:alert] = ""
+      @user = RecipeUser.find(session[:current_user_id])
       render('recipe_users/show.html.erb')
     end
   end
@@ -45,7 +55,14 @@ class RecipeUsersController < ApplicationController
 
   def edit
     @user = RecipeUser.find(params[:id])
-    render('recipe_users/edit.html.erb')
+    current_user_id = session[:current_user_id]
+    if @user.id != current_user_id
+      flash[:alert] = "You may edit only your own user information"
+      redirect_to('/recipe_users/index')
+    else
+      flash[:alert] = ""
+      render('recipe_users/edit.html.erb')
+    end
   end
 
   def update
@@ -64,7 +81,8 @@ class RecipeUsersController < ApplicationController
   def destroy
     @user = RecipeUser.find(params[:id])
     @user.destroy
-    flash[:notice] = "The user was deleted from the database"
+    session[:current_user_id] = nil
+    flash[:notice] = "The user was logged off and deleted from the database"
     redirect_to('/recipe_users/index')
   end
 

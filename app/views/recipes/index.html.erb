@@ -16,11 +16,15 @@
           <% else %>
             not yet rated, 
           <% end %>
-          contributed on <%= recipe.date_contributed %></span></h4></li>
+          contributed on <%= recipe.date_contributed %> by '<%= recipe.contributor.user_name %>'</span></h4></li>
       <% end %>
     </ul>
   <% end %>
   <br><br>
   <hr>
   <h4><a href="/recipes">Add a New Recipe</a></h4>
+  <h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>
+  <h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
+  <h4><a href="/recipe_users">Go to Welcome User menu</a></h4>
+  <h4><a href="/">Logoff from Coolest Recipes</a></h4>
 </div>

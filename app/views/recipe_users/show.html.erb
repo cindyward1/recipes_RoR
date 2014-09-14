@@ -20,13 +20,12 @@
   <% elsif @user.type == "Cook" %>
     <ul>
       <li><a href="/tags/index">See all recipe tags to select a tagged recipe to try</a></li>
-      <li><a href="/recipe/index">See all recipes to select one to try</a></li>
+      <li><a href="/recipes/index">See all recipes to select one to try or rate</a></li>
     </ul>
   <% end %>
   <br><br><br>
   <hr>
-  <h4><a href="/">Login to Coolest Recipes</a></h4>
-  <h4><a href="/recipe_users/new">Register with Coolest Recipes</a></h4>
   <h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>
   <h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
+  <h4><a href="/">Logoff from Coolest Recipes</a></h4>
 </div>
