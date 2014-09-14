@@ -79,7 +79,6 @@ This Ruby application implements a graphical user interface to a recipe manageme
 * List and maintain posted recipes.
 * Tag recipes so they are easier to find.
 
-
 ### The cook is able to:
 * Create a unique user name, a user password, and a screen name and have the date they joined recorded. For the purposes of this very simple implementation, the password is not encrypted in the database. (This behavior is inherited from the User model.)
 * Choose a tag and see what recipes have that tag.

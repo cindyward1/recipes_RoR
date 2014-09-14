@@ -3,7 +3,6 @@ require "date"
 class RecipeUsersController < ApplicationController
 
   def login
-    @current_user = nil
     @user = RecipeUser.new
     render('recipe_users/login.html.erb')
   end
@@ -18,6 +17,7 @@ class RecipeUsersController < ApplicationController
     params[:recipe_user][:date_joined] = @today
     params[:recipe_user][:user_name].downcase!
     @user = RecipeUser.new(params[:recipe_user])
+    @user.check_screen_name
     if @user.save
       flash[:notice] = "The user was saved to the database"
       redirect_to("/")
@@ -29,7 +29,6 @@ class RecipeUsersController < ApplicationController
   def show
     params[:recipe_user][:user_name].downcase!
     @user = RecipeUser.find_by(:user_name => params[:recipe_user][:user_name])
-    @current_user = @user
     if @user.nil? || @user.user_password != params[:recipe_user][:user_password]
       flash[:alert] = "User name not found or password didn't match stored value"
       render('recipe_users/login.html.erb')
@@ -51,9 +50,12 @@ class RecipeUsersController < ApplicationController
 
   def update
     @user = RecipeUser.find(params[:id])
+    if params[:recipe_user][:screen_name] == ""
+      params[:recipe_user][:screen_name] = @user.user_name
+    end
     if @user.update(params[:recipe_user])
       flash[:notice] = "The user was updated in the database"
-      redirect_to('/recipe_users/all')
+      redirect_to('/recipe_users/index')
     else
       render('recipe_users/edit.html.erb')
     end

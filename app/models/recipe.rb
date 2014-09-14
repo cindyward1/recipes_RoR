@@ -9,14 +9,4 @@ class Recipe < ActiveRecord::Base
   has_many :instructions, through: :instructions_recipes, dependent: :destroy
   validates :title, :presence => true, :uniqueness => true
   validates :date_contributed, :presence => true
-
-  def update_everything
-    # check to see if ingredients updated & create/update/destroy as needed
-    # check to see if instructions updated & create/update/destroy as needed
-    if self.update
-      return true
-    else
-      return false
-    end
-  end
 end

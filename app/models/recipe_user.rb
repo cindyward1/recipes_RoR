@@ -10,4 +10,10 @@ class RecipeUser < ActiveRecord::Base
   scope :contributors, -> { where(type: 'Contributor') }
   scope :cooks, -> { where(type: 'Cook') }
 
+  def check_screen_name
+    if self.screen_name == ""
+      self.screen_name = self.user_name
+    end
+  end
+
 end
