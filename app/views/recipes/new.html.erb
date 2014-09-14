@@ -1,0 +1,19 @@
+<% content_for(:title, "New Recipe| Coolest Recipes") %>
+<div class='container'>
+  <div class='row'>
+    <h1><%= image_tag('KidsCookingColor.jpg', class: 'pull-left', width: '400') %><b>Coolest Recipes</b></h1>
+  </div><br>
+  <h3><u>Contribute a New Recipe</u></h3>
+
+  <%= render('layouts/errors', :object => @recipe) %>
+
+  <h5><b>Enter the title of your new recipe:</b> <span class="red">(* Required)</span></h5><br>
+  <form action="/recipes" method="post">
+    <%= render('form1') %>
+    <br><br>
+    <button class="btn btn-success">Create New Recipe</button>
+  </form>
+  <br><br><br>
+  <hr>
+  <h4><a href="/recipes/index">See all the Coolest Recipes</a></h4>
+</div>

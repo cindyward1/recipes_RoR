@@ -4,5 +4,5 @@
 <% else %>
   <input id="user_name" class="field200" name="recipe_user[user_name]" type="text"><br><br>
 <% end %>
-<label for="user_password" class="field">User Password (case-sensitive, must be 8-16 characters)&nbsp</label>
+<label for="user_password" class="field">User Password <span class="smaller">(case-sensitive, must be 8-16 characters)</span>&nbsp</label>
 <input id="user_password" class="field200" name="recipe_user[user_password]" type="password" value="<%= @user.user_password %>"><br>

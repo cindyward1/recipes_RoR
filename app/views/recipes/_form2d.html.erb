@@ -1,0 +1,39 @@
+  <label for="rating" class="field">Rating&nbsp</label>
+  <% case @recipe.rating %>
+  <% when 1 %>
+    <input id="rating" type="radio" name="recipe[rating]" value="1" checked disabled> Terrible!&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="2" disabled> Not Good&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="3" disabled> So-So&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="4" disabled> Fairly Good&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="5" disabled> Great!
+  <% when 2 %>
+    <input id="rating" type="radio" name="recipe[rating]" value="1" disabled> Terrible!&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="2" checked disabled> Not Good&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="3" disabled> So-So&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="4" disabled> Fairly Good&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="5" disabled> Great!
+  <% when 3 %>
+    <input id="rating" type="radio" name="recipe[rating]" value="1" disabled> Terrible!&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="2" disabled> Not Good&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="3" checked disabled> So-So&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="4" disabled> Fairly Good&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="5" disabled> Great!
+  <% when 4 %>
+    <input id="rating" type="radio" name="recipe[rating]" value="1" disabled> Terrible!&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="2" disabled> Not Good&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="3" disabled> So-So&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="4" checked disabled> Fairly Good&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="5" disabled> Great!
+  <% when 5 %>
+    <input id="rating" type="radio" name="recipe[rating]" value="1" disabled> Terrible!&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="2" disabled> Not Good&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="3" disabled> So-So&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="4" disabled> Fairly Good&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="5" checked disabled> Great!
+  <% else %>
+    <input id="rating" type="radio" name="recipe[rating]" value="1" disabled> Terrible!&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="2" disabled> Not Good&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="3" disabled> So-So&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="4" disabled> Fairly Good&nbsp&nbsp
+    <input id="rating" type="radio" name="recipe[rating]" value="5" disabled> Great!&nbsp&nbsp&nbsp<span class="red">Not yet rated!</span>
+  <% end %>

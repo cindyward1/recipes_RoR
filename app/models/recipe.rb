@@ -7,6 +7,6 @@ class Recipe < ActiveRecord::Base
   has_many :ingredients, through: :ingredients_recipes
   has_many :instructions_recipes, autosave: true, dependent: :destroy
   has_many :instructions, through: :instructions_recipes, dependent: :destroy
-  validates :title, :presence => true, :uniqueness => true
+  validates :title, :presence => true, :uniqueness => true, length: { minimum: 8, maximum: 50 }
   validates :date_contributed, :presence => true
 end
