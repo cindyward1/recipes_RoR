@@ -1,0 +1,24 @@
+<% content_for(:title, "Update Recipe Trial Date| Coolest Recipes") %>
+
+<h3><u>Update a Recipe Trial Date</u></h3>
+
+<%= render('layouts/errors', :object => @tried_recipe) %>
+
+<h5><b>Update the date you tried the recipe '<%= @tried_recipe.recipe.title %>' <span class="smaller">(default is today)</span>:</h5>
+<form action="/tried_recipes/<%= @tried_recipe.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <label for="date_tried" class="field-short">Date You Tried Recipe&nbsp&nbsp</label>
+  <input id="date_tried" name="date_tried" type="date" value="<%= @tried_recipe.date_tried %>" class="field200">
+  <br><br>
+  <button class="btn btn-warning">Update Date</button>
+</form><br>
+<button class="btn btn-danger"><a href="/tried_recipes/<%= @tried_recipe.id %>"
+      data-confirm="Are you sure you want to delete this recipe trial?"
+      data-method="delete" rel="nofollow" style="color: white">Delete Recipe Trial</a></button>
+<br><br><br>
+<h4><a href="/recipes/index">See all the Coolest Recipes</a></h4>
+<h4><a href="/tags/index">See all tags</a></h4>
+<h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
+<h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>
+<h4><a href="/recipe_users">Go to Welcome User menu</a></h4>
+<h4><a href="/">Logoff from Coolest Recipes</a></h4>

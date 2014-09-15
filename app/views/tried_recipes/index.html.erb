@@ -1,0 +1,21 @@
+<% content_for(:title, "All Tried Recipes | Coolest Recipes") %>
+
+<h3><u>List of All Recipes You Have Tried</u></h3>
+<% if @tried_recipes.empty? %>
+  <h3>No recipes in the database have been tried</h3>
+<% else %>
+  <ul>
+    <% @tried_recipes.each do |tried_recipe| %>
+      <% if tried_recipe.recipe_user_id == @user.id %>
+        <li><h5>You tried '<%= tried_recipe.recipe.title %>' on <a href="/tried_recipes/<%= tried_recipe.id %>/edit"><%= tried_recipe.date_tried %></a></span></h5></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
+<br><br>
+<hr>
+<h4><a href="/recipes/index">See all the Coolest Recipes</a></h4>
+<h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
+<h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>
+<h4><a href="/recipe_users">Go to Welcome User menu</a></h4>
+<h4><a href="/">Logoff from Coolest Recipes</a></h4>

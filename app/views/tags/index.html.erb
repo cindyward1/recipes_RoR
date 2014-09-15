@@ -7,7 +7,11 @@
 <% else %>
   <ul>
     <% @tags.each do |tag| %>
-      <li><h3><a href="/tags/<%= tag.id %>/edit"><%= tag.tag_text %></h3></li>
+      <% if @user.type == "Contributor" %>
+        <li><h4><a href="/tags/<%= tag.id %>/edit"><%= tag.tag_text %></h4></li>
+      <% else %>
+        <li><h4><a href="/tags/<%= tag.id %>/show"><%= tag.tag_text %></h4></li>
+      <% end %>
     <% end %>
   </ul>
 <% end %>

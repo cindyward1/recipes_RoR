@@ -89,7 +89,6 @@ This Ruby application implements a graphical user interface to a recipe manageme
 
 ### Constraints and conditions:
 * If a user wishes to be both a contributor and a cook, they must have 2 different user names (user names are unique for all users, whether contributors or cooks). This is a constraint because I used single-table inheritance rather than a more flexible mechanism to distinguish between the two types of users.
-* There is no need for a tags#read route because the sole content of a tag is its text, which is fully displayed in the tags#list route. Thus clicking on a tag in the list of all tags goes to the tags#edit and the redirect from tags#update and tags#destroy is to tags#list.
 
 ##Thanks:
 * To my wonderful husband Steve Ward for his support and his incredible patience.

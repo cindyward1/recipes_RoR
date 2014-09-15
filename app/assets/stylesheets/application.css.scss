@@ -23,6 +23,13 @@ label.field {
   font-weight: bold;
 }
 
+label.field-short {
+  text-align: right;
+  width: 300px;
+  float: left;
+  font-weight: bold;
+}
+
 input.field200 {
   width: 200px;
   float: left;

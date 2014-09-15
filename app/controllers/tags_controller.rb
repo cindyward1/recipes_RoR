@@ -24,6 +24,13 @@ class TagsController < ApplicationController
     render('tags/index.html.erb')
   end
 
+  def show
+    @user = RecipeUser.find(session[:current_user_id])
+    @tag = Tag.find(params[:id])
+    @recipes = @tag.recipes
+    render('tags/show.html.erb')
+  end
+
   def edit
     @user = RecipeUser.find(session[:current_user_id])
     @tag = Tag.find(params[:id])

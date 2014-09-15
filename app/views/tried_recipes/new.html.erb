@@ -1,0 +1,22 @@
+<% content_for(:title, "Try Recipe| Coolest Recipes") %>
+
+<h3><u>Try a Recipe</u></h3>
+
+<%= render('layouts/errors', :object => @tried_recipe) %>
+
+<h5><b>Enter the date you tried the recipe '<%= @recipe.title %>'' <span class="smaller">(default is today)</span>:</h5>
+<form action="/tried_recipes" method="post">
+  <label for="date_tried" class="field-short">Date You Tried Recipe&nbsp&nbsp</label>
+  <input id="date_tried" name="date_tried" type="date" value="<%= @today %>" class="field200">
+  <input id="recipe" name="recipe_id" type="hidden" value="<%= @recipe.id %>" >
+  <br><br>
+  <button class="btn btn-success">Record Date</button>
+</form>
+<br><br><br>
+<hr>
+<h4><a href="/recipes/index">See all the Coolest Recipes</a></h4>
+<h4><a href="/tags/index">See all tags</a></h4>
+<h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
+<h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>
+<h4><a href="/recipe_users">Go to Welcome User menu</a></h4>
+<h4><a href="/">Logoff from Coolest Recipes</a></h4>
