@@ -1,0 +1,11 @@
+<label for="tags" class="field">Available tags&nbsp</label>
+<select id="tags" name="tag[id][]" multiple>
+  <% @tags.each do |tag| %>
+    <option value="<%= tag.id %>"
+      <% if !@tag_id_array.empty? && @tag_id_array.include?(tag.id) %> 
+        selected
+      <% end %>
+    ><%= tag.tag_text %></option>
+  <% end %>
+</select>
+<br><br>

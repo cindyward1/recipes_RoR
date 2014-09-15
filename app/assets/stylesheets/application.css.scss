@@ -33,6 +33,16 @@ input.field400 {
   float: left;
 }
 
+select {
+  width: 200px;
+  float: left;
+  margin-left: 2px;
+}
+
+option[selected] {
+  color: black;
+}
+
 a.white {
   color: white
 }

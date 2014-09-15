@@ -9,4 +9,12 @@ class Recipe < ActiveRecord::Base
   has_many :instructions, through: :instructions_recipes, dependent: :destroy
   validates :title, :presence => true, :uniqueness => true, length: { minimum: 8, maximum: 50 }
   validates :date_contributed, :presence => true
+
+  def get_tags
+    return_array = []
+    self.tags.each do |tag|
+      return_array << tag.id
+    end
+    return_array
+  end
 end

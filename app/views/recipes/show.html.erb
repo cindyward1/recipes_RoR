@@ -1,10 +1,25 @@
-<% content_for(:title, "Show Recipe | Coolest Recipes") %>
-  
+<% content_for(:title, "Show/Rate Recipe | Coolest Recipes") %>
+
+<h3><u>Show/Rate an Existing Recipe</u></h3>
+
 <%= render('layouts/errors', :object => @user) %>
 
-<h5><b>The recipe:</b></h5>
-<%= render('form1') %>
-<br><br><br>
+<h5><b>Enter a new title for your recipe:</b></h5><br>
+<form action="/recipes/<%= @recipe.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+    <%= render('form1d') %>
+    <% if @user.type == "Cook" %>
+      <%= render('form2') %>
+    <% else %>
+      <%= render('form2d') %>
+    <% end %>
+    <%= render('form3d') %>
+  <% if @user.type == "Cook" %>
+    <br><br>
+    <button class="btn btn-warning">Rate Recipe</button>
+  <% end %>
+</form>
+<br><br>
 <hr>
 <h4><a href="/recipes/index">See all the Coolest Recipes</a></h4>
 <h4><a href="/tags/index">See all tags</a></h4>

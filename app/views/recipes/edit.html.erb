@@ -4,11 +4,12 @@
 
 <%= render('layouts/errors', :object => @user) %>
 
- <h5><b>Enter a new title for your recipe:</b></h5><br>
+<h5><b>Enter a new title for your recipe:</b></h5><br>
 <form action="/recipes/<%= @recipe.id %>" method="post">
   <input name="_method" type="hidden" value="patch">
     <%= render('form1') %>
     <%= render('form2d') %>
+    <%= render('form3') %>
   <br><br>
   <button class="btn btn-warning">Update Recipe</button>
 </form><br>

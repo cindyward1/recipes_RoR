@@ -4,9 +4,10 @@
 
 <%= render('layouts/errors', :object => @recipe) %>
 
-<h5><b>Enter the title of your new recipe:</b> <span class="red">(* Required)</span></h5><br>
+<h5><b>Enter the title of and select any desired tags for your new recipe:</b> <span class="red">(* Required)</span></h5><br>
 <form action="/recipes" method="post">
   <%= render('form1') %>
+  <%= render('form3') %>
   <br><br>
   <button class="btn btn-success">Create New Recipe</button>
 </form>

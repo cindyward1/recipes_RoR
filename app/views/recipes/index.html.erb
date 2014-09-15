@@ -7,11 +7,15 @@
 <% else %>
   <ul>
     <% @recipes.each do |recipe| %>
-      <li><h4><a href="/recipes/<%= recipe.id %>/edit">'<%= recipe.title %>'</a>, <span class="smaller">
+      <% if @user.id == recipe.recipe_user_id %>
+        <li><h4><a href="/recipes/<%= recipe.id %>/edit">'<%= recipe.title %>'</a>,
+      <% else %>
+        <li><h4><a href="/recipes/<%= recipe.id %>/show">'<%= recipe.title %>'</a>,
+      <% end %>
         <% if (1..5).include?(recipe.rating) %>
-          rated <%= recipe.rating %> star(s), 
+          <span class="smaller">rated <%= recipe.rating %> star(s), 
         <% else %>
-          not yet rated, 
+          <span class="smaller">not yet rated, 
         <% end %>
         contributed on <%= recipe.date_contributed %> by 
         <% if !recipe.contributor.nil? %>
