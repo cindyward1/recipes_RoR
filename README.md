@@ -16,46 +16,46 @@ recipes\_RoR
 * ./Rakefile (configuration information used by 'rake' utility)
 * ./app/assets/images/KidsCookingColor.jpg (downloaded from Web)
 * ./app/assets/stylesheets/application.css.scss (modified by author)
-* ./app/controllers/application_controller.rb (modified by author)
-* ./app/controllers/recipe_users_controller.rb
-* ./app/controllers/recipes_controller.rb
-* ./app/controllers/tags_controller.rb
-* ./app/controllers/tried_recipes_controller.rb
+* ./app/controllers/application\_controller.rb (modified by author)
+* ./app/controllers/recipe\_users\_controller.rb
+* ./app/controllers/recipes\_controller.rb
+* ./app/controllers/tags\_controller.rb
+* ./app/controllers/tried\_recipes\_controller.rb
 * ./app/models/contributor.rb (the Ruby implementation of the Contributor model, child of User model)
 * ./app/models/cook.rb (the Ruby implementation of the Cook model, child of User model)
 * ./app/models/recipe.rb (the Ruby implementation of the Recipe model)
-* ./app/models/recipe_user.rb (the Ruby implementation of the RecipeUser model)
-* ./app/models/recipes_tab.rb (the Ruby implementation of the join table between Recipe and Tag models)
+* ./app/models/recipe\_user.rb (the Ruby implementation of the RecipeUser model)
+* ./app/models/recipes\_tab.rb (the Ruby implementation of the join table between Recipe and Tag models)
 * ./app/models/tag.rb (the Ruby implementation of the Tag model)
-* ./app/models/tried_recipe.rb (the Ruby implementation of the join table between Cook and Recipe models)
-* ./app/views/layouts/_errors.html.erb (error partial form)
+* ./app/models/tried\_recipe.rb (the Ruby implementation of the join table between Cook and Recipe models)
+* ./app/views/layouts/\_errors.html.erb (error partial form)
 * ./app/views/layouts/application.html.erb (modified by author)
-* ./app/views/recipe_users/_form1.html.erb (shared partial form)
-* ./app/views/recipe_users/_form1a.html.erb (shared partial form)
-* ./app/views/recipe_users/_form2.html.erb (shared partial form)
-* ./app/views/recipe_users/edit.html.erb
-* ./app/views/recipe_users/index.html.erb
-* ./app/views/recipe_users/login.html.erb
-* ./app/views/recipe_users/new.html.erb
-* ./app/views/recipe_users/show.html.erb
-* ./app/views/recipes/_form1.html.erb (shared partial form)
-* ./app/views/recipes/_form1d.html.erb (shared partial form)
-* ./app/views/recipes/_form2.html.erb (shared partial form)
-* ./app/views/recipes/_form2d.html.erb (shared partial form)
-* ./app/views/recipes/_form3.html.erb (shared partial form)
-* ./app/views/recipes/_form3d.html.erb (shared partial form)
+* ./app/views/recipe\_users/\_form1.html.erb (shared partial form)
+* ./app/views/recipe\_users/\_form1a.html.erb (shared partial form)
+* ./app/views/recipe\_users/\_form2.html.erb (shared partial form)
+* ./app/views/recipe\_users/edit.html.erb
+* ./app/views/recipe\_users/index.html.erb
+* ./app/views/recipe\_users/login.html.erb
+* ./app/views/recipe\_users/new.html.erb
+* ./app/views/recipe\_users/show.html.erb
+* ./app/views/recipes/\_form1.html.erb (shared partial form)
+* ./app/views/recipes/\_form1d.html.erb (shared partial form)
+* ./app/views/recipes/\_form2.html.erb (shared partial form)
+* ./app/views/recipes/\_form2d.html.erb (shared partial form)
+* ./app/views/recipes/\_form3.html.erb (shared partial form)
+* ./app/views/recipes/\_form3d.html.erb (shared partial form)
 * ./app/views/recipes/edit.html.erb
 * ./app/views/recipes/index.html.erb
 * ./app/views/recipes/new.html.erb
 * ./app/views/recipes/show.html.erb
-* ./app/views/tags/_form.html.erb (shared partial form)
+* ./app/views/tags/\_form.html.erb (shared partial form)
 * ./app/views/tags/edit.html.erb
 * ./app/views/tags/index.html.erb
 * ./app/views/tags/new.html.erb
 * ./app/views/tags/show.html.erb
-* ./app/views/tried_recipes/edit.html.erb
-* ./app/views/tried_recipes/index.html.erb
-* ./app/views/tried_recipes/new.html.erb
+* ./app/views/tried\_recipes/edit.html.erb
+* ./app/views/tried\_recipes/index.html.erb
+* ./app/views/tried\_recipes/new.html.erb
 * ./config/routes.rb (the Rails routes for user action requests)
 * ./db/config.yml (database configuration file showing the names of the development and test databases)
 * ./db/schema.rb (database schema)
@@ -90,19 +90,21 @@ recipes\_RoR
  * [jquery-rails](https://rubygems.org/gems/jquery-rails) provides jQuery and the jQuery-ujs driver for Rails
  * [turbolinks](https://rubygems.org/gems/turbolinks) makes following links in a Web application faster
  * [autoprefixer-rails](https://rubygems.org/gems/autoprefixer-rails) parses CSS and adds vendor prefixes to CSS rules using values from the 'Can I Use' Web site
- * (development configuration only) [better_errors](https://rubygems.org/gems/better_errors) provides a better error page for Rails and other Rack apps. Includes source code inspection, a live REPL and local/instance variable inspection for all stack frames
- * (development configuration only) [binding_of_caller](https://rubygems.org/gems/binding_of_caller) retrieve the binding of a method's caller; can also retrieve bindings even further up the stack
- * (development configuration only) [quiet-assets](https://rubygems.org/gems/quiet_assets) turns off Rails asset pipeline log
+ * (development configuration only) [better\_errors](https://rubygems.org/gems/better\_errors) provides a better error page for Rails and other Rack apps. Includes source code inspection, a live REPL and local/instance variable inspection for all stack frames
+ * (development configuration only) [binding\_of\_caller](https://rubygems.org/gems/binding\_of\_caller) retrieve the binding of a method's caller; can also retrieve bindings even further up the stack
+ * (development configuration only) [quiet\_assets](https://rubygems.org/gems/quiet\_assets) turns off Rails asset pipeline log
  * (development and test configurations only) [rspec-rails](https://rubygems.org/gems/rspec-rails) implements RSpec for Rails
  * (test configuration only) [rspec](https://rubygems.org/gems/rspec) is a testing tool for the Ruby language
  * (test configuration only) [shoulda-matchers](http://robots.thoughtbot.com/shoulda-matchers-2-6-0) "makes tests easy on the fingers and eyes" by simplifying the expression of rspec test conditions to be met
- * (production configuration only) [rails_12factor](https://rubygems.org/gems/rails_12factor) runs Rails the 12factor way
+ * (production configuration only) [rails\_12factor](https://rubygems.org/gems/rails\_12factor) runs Rails the 12factor way
 
 * To create the database, cd to (clone location)/recipes\_RoR and enter the following at a terminal application prompt **$: rake db:create** followed by **$: rake db:schema:load**
 
 * To run the application takes several steps:
  * You must start the Rails server for the application to function at all. cd to (clone location)/recipes\_RoR and enter the following at a terminal application prompt **$: rails server . This window must stay open the entire time the application is running; it can be minimized.
  * After the Rails server is running, run the Chrome Web browser and enter **localhost:3000** in the Web address field. This should bring up the login screen. To create a new user, follow the "Register with Coolest Recipes" link near the bottom of the Web page.
+
+* This application can be run from [Heroku](https://www.heroku.com/). To run from Heroku, you must first have Heroku installed (this is too complicated to explain in this README), login to Heroku with your credentials, then create the database by entering the following at a terminal application prompt **$: heroku run rake db:migrate** . This app can then be accessed from http://recipes-rubyonrails-cindy.herokuapp.com
 
 * You can also test a non-interactive version of the methods against their test cases found in (clone location)/recipes\_RoR/spec/\*.rb using rspec (see gem reference above). Please use version 3.1.1. If you wish to do this, you must first cd to (clone location)/recipes\_RoR and enter the following at a terminal application **$: rake db:test:prepare** . This will prepare the test version of the database for use. Then to run rspec, cd to (clone location)/recipes\_RoR and enter the following string at a terminal application **$: rspec** (This command will automatically execute any .rb file it finds in ./spec/.)
 
