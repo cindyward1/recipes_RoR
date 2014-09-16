@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140916163600) do
     t.date     "date_tried"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
     t.integer  "recipe_user_id"
   end
 
