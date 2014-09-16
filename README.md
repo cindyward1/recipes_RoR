@@ -5,7 +5,7 @@ recipes\_RoR
 
 * Author: Cindy Ward <cindyward@yahoo.com>
 * Date created: September 4, 2014
-* Last modification date: September 4, 2014
+* Last modification date: September 16, 2014
 * Created for:  Epicodus, Summer 2014 session
 
 ## Included; written by author:
