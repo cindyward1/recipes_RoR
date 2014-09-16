@@ -21,7 +21,10 @@ class RecipesController < ApplicationController
     params[:recipe][:recipe_user_id] = @user.id
     @recipe = Recipe.new(params[:recipe])
     @tag = Tag.where(params[:tag])
-    @recipe.tags << @tag
+    if params[:tag] != nil
+      @tag = Tag.where(params[:tag])
+      @recipe.tags << @tag
+    end
     if @recipe.save
       flash[:notice] = "The recipe was saved to the database"
       redirect_to("/recipes/index")
@@ -57,6 +60,7 @@ class RecipesController < ApplicationController
     @user = RecipeUser.find(session[:current_user_id])
     @tags = Tag.all.order(:tag_text)
     @recipe = Recipe.find(params[:id])
+    @tag_id_array = @recipe.get_tags
     if @user.type == "Contributor"
       if !params[:recipe][:title].nil?
         params[:recipe][:title].upcase!

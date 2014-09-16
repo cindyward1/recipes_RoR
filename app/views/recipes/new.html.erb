@@ -4,7 +4,7 @@
 
 <%= render('layouts/errors', :object => @recipe) %>
 
-<h5><b>Enter the title of and select any desired tags for your new recipe:</b> <span class="red">(* Required)</span></h5><br>
+<h5><b>Enter the title of and select any desired tags for your new recipe:</b> <span class="red">(* required field)</span></h5><br>
 <form action="/recipes" method="post">
   <%= render('form1') %>
   <%= render('form3') %>
@@ -14,6 +14,9 @@
 <br><br><br>
 <hr>
 <h4><a href="/recipes/index">See all the Coolest Recipes</a></h4>
+<% if @user.type == "Cook" %>
+  <h4><a href="/tried_recipes">See all recipes you have tried</a></h4>
+<% end %>
 <h4><a href="/tags/index">See all tags</a></h4>
 <h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
 <h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>

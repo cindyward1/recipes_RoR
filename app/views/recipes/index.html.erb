@@ -1,21 +1,25 @@
 <% content_for(:title, "All Recipes | Coolest Recipes") %>
 
 <h3><u>List of All Recipes</u></h3>
-<h5>(Click on a link to edit or delete the recipe)</h5>
+<% if @user.type == "Cook" %>
+  <h5>(You can click on a link to rate a recipe)</h5>
+<% else %>
+  <h5>(You can click on a link to edit or delete a recipe you contributed, or to see details about any other recipe)
+<% end %>
 <% if @recipes.empty? %>
   <h3>There are no recipes in the database</h3>
 <% else %>
   <ul>
     <% @recipes.each do |recipe| %>
       <% if @user.id == recipe.recipe_user_id %>
-        <li><h4><a href="/recipes/<%= recipe.id %>/edit">'<%= recipe.title %>'</a>,
+        <li><h4><a href="/recipes/<%= recipe.id %>/edit"><%= recipe.title %></a>,
       <% else %>
-        <li><h4><a href="/recipes/<%= recipe.id %>/show">'<%= recipe.title %>'</a>,
+        <li><h4><a href="/recipes/<%= recipe.id %>/show"><%= recipe.title %></a>,
       <% end %>
-        <% if (1..5).include?(recipe.rating) %>
+        <% if recipe.rating != 0 %>
           <span class="smaller">rated <%= recipe.rating.round(2) %> star(s) by <%= recipe.number_ratings %> reviewer(s),
         <% else %>
-          <span class="smaller">not yet rated,
+          <span class="smaller"><span class="red">not yet rated</span>,
         <% end %>
         contributed on <%= recipe.date_contributed %> by
         <% if !recipe.contributor.nil? %>
@@ -28,6 +32,9 @@
 <% end %>
 <br><br>
 <hr>
+<% if @user.type == "Cook" %>
+  <h4><a href="/tried_recipes">See all recipes you have tried</a></h4>
+<% end %>
 <h4><a href="/tags/index">See all tags</a></h4>
 <h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
 <h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>

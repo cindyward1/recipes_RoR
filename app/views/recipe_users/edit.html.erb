@@ -1,10 +1,10 @@
 <% content_for(:title, "Edit User | Coolest Recipes") %>
-  
+
 <h3><u>Edit an Existing User</u></h3>
 
 <%= render('layouts/errors', :object => @user) %>
 
- <h5><b>Enter new text for the tag:</b></h5><br>
+ <h5><b>Enter a new password or screen name:</b></h5><br>
 <form action="/recipe_users/<%= @user.id %>" method="post">
   <input name="_method" type="hidden" value="patch">
     <%= render('form1a') %>

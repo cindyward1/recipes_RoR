@@ -9,7 +9,6 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'autoprefixer-rails'
-gem 'textacular'
 
 group :development do
   gem 'better_errors'

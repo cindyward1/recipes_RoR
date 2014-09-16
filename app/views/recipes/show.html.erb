@@ -1,28 +1,39 @@
-<% content_for(:title, "Show/Rate Recipe | Coolest Recipes") %>
+<% content_for(:title, "Show Recipe | Coolest Recipes") %>
 
-<h3><u>Show/Rate an Existing Recipe</u></h3>
+<% if @user.type == "Cook" %>
+  <h3><u>Show/Rate/Try an Existing Recipe</u></h3>
+<% else %>
+  <h3><u>Show an Existing Recipe</u></h3>
+<% end %>
 
 <%= render('layouts/errors', :object => @user) %>
 
-<h5><b>Rate the recipe or record the trial date:</b></h5><br>
-<form action="/recipes/<%= @recipe.id %>" method="post">
-  <input name="_method" type="hidden" value="patch">
+<% if @user.type == "Cook" %>
+  <h5><b>Rate the recipe or record the trial date:</b><span class="smaller">(recipe contributed by '<%= @recipe.contributor.user_name %>'')</h5><br>
+  <form action="/recipes/<%= @recipe.id %>" method="post">
+    <input name="_method" type="hidden" value="patch">
     <%= render('form1d') %>
-    <% if @user.type == "Cook" %>
-      <%= render('form2') %>
-    <% else %>
-      <%= render('form2d') %>
-    <% end %>
+    <%= render('form2') %>
     <%= render('form3d') %>
-  <% if @user.type == "Cook" %>
     <br><br>
     <button class="btn btn-warning">Rate Recipe</button>
-  <% end %>
-</form><br>
-<button class="btn btn-primary"><a href="/tried_recipes/<%= @recipe.id %>" class="white">Try Recipe</a></button>
+  </form>
+  <br>
+  <button class="btn btn-primary"><a href="/tried_recipes/<%= @recipe.id %>" class="white">Try Recipe</a></button>
+<% else %>
+  <h5><b>The recipe details: </b><span class="smaller">(recipe contributed by '<%= @recipe.contributor.user_name %>')</h5><br>
+  <form action="/recipes/<%= @recipe.id %>" method="get">
+    <%= render('form1d') %>
+    <%= render('form2d') %>
+    <%= render('form3d') %>
+  </form>
+<% end %>
 <br><br>
 <hr>
 <h4><a href="/recipes/index">See all the Coolest Recipes</a></h4>
+<% if @user.type == "Cook" %>
+  <h4><a href="/tried_recipes">See all recipes you have tried</a></h4>
+<% end %>
 <h4><a href="/tags/index">See all tags</a></h4>
 <h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
 <h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>

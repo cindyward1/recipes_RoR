@@ -5,16 +5,27 @@
   <h3>No recipes in the database have been tried</h3>
 <% else %>
   <ul>
+    <% count = 0 %>
     <% @tried_recipes.each do |tried_recipe| %>
       <% if tried_recipe.recipe_user_id == @user.id %>
-        <li><h5>You tried '<%= tried_recipe.recipe.title %>' on <a href="/tried_recipes/<%= tried_recipe.id %>/edit"><%= tried_recipe.date_tried %></a></span></h5></li>
+        <li><h4><a href="/recipes/<%= tried_recipe.recipe.id %>/show"><%= tried_recipe.recipe.title %></a>, <span class="smaller">
+          <% if (1..5).include?(tried_recipe.recipe.rating) %>
+          rated <%= tried_recipe.recipe.rating.round(2) %> star(s) by <%= tried_recipe.recipe.number_ratings %> reviewer(s),
+        <% else %>
+          <span class="red">not yet rated</span>,
+        <% end %>contributed by '<%= tried_recipe.recipe.contributor.user_name %>', tried on <a href="/tried_recipes/<%= tried_recipe.id %>/edit"><%= tried_recipe.date_tried %></a></span></h5></li>
+      <% count += 1 %>
       <% end %>
     <% end %>
   </ul>
+  <% if count == 0 %>
+    <h4>You have not tried any recipes yet</h4>
+  <% end %>
 <% end %>
 <br><br>
 <hr>
 <h4><a href="/recipes/index">See all the Coolest Recipes</a></h4>
+<h4><a href="/tags/index">See all tags</a></h4>
 <h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
 <h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>
 <h4><a href="/recipe_users">Go to Welcome User menu</a></h4>

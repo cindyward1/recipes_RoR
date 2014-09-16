@@ -4,7 +4,7 @@
 
 <%= render('layouts/errors', :object => @user) %>
 
-<h5><b>Enter your new Coolest Recipes user name, password, screen name, and user type:</b> <span class="red">(* Required)</span></h5><br>
+<h5><b>Enter your new Coolest Recipes user name, password, screen name, and user type:</b> <span class="red">(* required field)</span></h5><br>
 <form action="/recipe_users" method="post">
   <%= render('form1') %>
   <%= render('form2') %>

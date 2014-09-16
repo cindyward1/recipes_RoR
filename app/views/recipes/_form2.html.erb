@@ -1,5 +1,6 @@
   <label for="rating" class="field">Rating&nbsp</label>
-  <% case @recipe.rating %>
+  <% integer_rating = @recipe.rating.round(0) %>
+  <% case integer_rating %>
   <% when 1 %>
     <input id="rating" type="radio" name="recipe[rating]" value="1" checked> Terrible!&nbsp&nbsp
     <input id="rating" type="radio" name="recipe[rating]" value="2"> Not Good&nbsp&nbsp

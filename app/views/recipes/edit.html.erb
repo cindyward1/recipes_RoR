@@ -4,7 +4,7 @@
 
 <%= render('layouts/errors', :object => @user) %>
 
-<h5><b>Enter a new title for your recipe:</b></h5><br>
+<h5><b>Enter a new title for your recipe:</b><span class="red"> (* changeable field)</span></h5><br>
 <form action="/recipes/<%= @recipe.id %>" method="post">
   <input name="_method" type="hidden" value="patch">
     <%= render('form1') %>
@@ -19,6 +19,9 @@
 <br><br><br>
 <hr>
 <h4><a href="/recipes/index">See all the Coolest Recipes</a></h4>
+<% if @user.type == "Cook" %>
+  <h4><a href="/tried_recipes">See all recipes you have tried</a></h4>
+<% end %>
 <h4><a href="/tags/index">See all tags</a></h4>
 <h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
 <h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>

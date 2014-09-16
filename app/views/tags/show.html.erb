@@ -14,7 +14,7 @@
       <% if (1..5).include?(recipe.rating) %>
         <span class="smaller">rated <%= recipe.rating %> star(s),
       <% else %>
-        <span class="smaller">not yet rated,
+        <span class="smaller"><span class="red">not yet rated</span>,
       <% end %>
         contributed on <%= recipe.date_contributed %> by
         <% if !recipe.contributor.nil? %>
@@ -28,9 +28,10 @@
 <br><br><br>
 <hr>
 <h4><a href="/tags/index">See all tags</a></h4>
-<h4><a href="/tags/new">Create a tag</a></h4>
 <h4><a href="/recipes/index">See all the Coolest Recipes</a></h4>
-<h4><a href="/recipes">Add a New Recipe</a></h4>
+<% if @user.type == "Cook" %>
+  <h4><a href="/tried_recipes">See all recipes you have tried</a></h4>
+<% end %>
 <h4><a href="/recipe_users/index">See all Coolest Recipes users</a></h4>
 <h4><a href="/recipe_users/<%= @user.id %>/edit">Edit password and/or screen name</a></h4>
 <h4><a href="/recipe_users">Go to Welcome User menu</a></h4>

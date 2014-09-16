@@ -1,4 +1,4 @@
-<label for="title" class="field"><span class="red">*</span> Recipe Name <span class="smaller">(case-insensitive, must be unique and 8-50 characters)</span>&nbsp</label>
+<label for="title" class="field">Recipe Name&nbsp</label>
 <% if !@recipe.nil? %>
   <input id="title" class="field400" name="recipe[title]" type="text" value="<%= @recipe.title %>" disabled><br><br>
 <% else %>
