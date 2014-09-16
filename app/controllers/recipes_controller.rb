@@ -16,6 +16,7 @@ class RecipesController < ApplicationController
     @tags = Tag.all.order(:tag_text)
     params[:recipe][:date_contributed] = @today
     params[:recipe][:rating] = 0
+    params[:recipe][:number_ratings] = 0
     params[:recipe][:title].upcase!
     params[:recipe][:recipe_user_id] = @user.id
     @recipe = Recipe.new(params[:recipe])
@@ -40,7 +41,7 @@ class RecipesController < ApplicationController
   def index
     @user = RecipeUser.find(session[:current_user_id])
     @tags = Tag.all.order(:tag_text)
-    @recipes = Recipe.all.order(:title)
+    @recipes = Recipe.all.order(rating: :desc, title: :asc)
     render('recipes/index.html.erb')
   end
 
@@ -56,12 +57,20 @@ class RecipesController < ApplicationController
     @user = RecipeUser.find(session[:current_user_id])
     @tags = Tag.all.order(:tag_text)
     @recipe = Recipe.find(params[:id])
-    if !params[:recipe][:title].nil?
-      params[:recipe][:title].upcase!
+    if @user.type == "Contributor"
+      if !params[:recipe][:title].nil?
+        params[:recipe][:title].upcase!
+      end
+      @tag = Tag.where(params[:tag])
+      @recipe.tags.destroy_all
+      @recipe.tags << @tag
+    else
+      if !params[:recipe][:rating].nil?
+        new_rating = params[:recipe][:rating].to_i
+        params[:recipe][:rating] = @recipe.calculate_rating(new_rating)
+        params[:recipe][:number_ratings] = @recipe.number_ratings + 1
+      end
     end
-    @tag = Tag.where(params[:tag])
-    @recipe.tags.destroy_all
-    @recipe.tags << @tag
     if @recipe.update(params[:recipe])
       flash[:notice] = "The recipe was updated in the database"
       redirect_to('/recipes/index')

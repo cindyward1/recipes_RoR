@@ -13,11 +13,11 @@
         <li><h4><a href="/recipes/<%= recipe.id %>/show">'<%= recipe.title %>'</a>,
       <% end %>
         <% if (1..5).include?(recipe.rating) %>
-          <span class="smaller">rated <%= recipe.rating %> star(s), 
+          <span class="smaller">rated <%= recipe.rating.round(2) %> star(s) by <%= recipe.number_ratings %> reviewer(s),
         <% else %>
-          <span class="smaller">not yet rated, 
+          <span class="smaller">not yet rated,
         <% end %>
-        contributed on <%= recipe.date_contributed %> by 
+        contributed on <%= recipe.date_contributed %> by
         <% if !recipe.contributor.nil? %>
           '<%= recipe.contributor.user_name %>'
         <% else %>

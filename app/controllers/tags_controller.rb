@@ -27,7 +27,7 @@ class TagsController < ApplicationController
   def show
     @user = RecipeUser.find(session[:current_user_id])
     @tag = Tag.find(params[:id])
-    @recipes = @tag.recipes
+    @recipes = @tag.recipes.order(rating: :desc, title: :asc)
     render('tags/show.html.erb')
   end
 

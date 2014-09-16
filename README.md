@@ -76,14 +76,14 @@ This Ruby application implements a graphical user interface to a recipe manageme
 ### The recipe contributor is able to:
 * Create a unique user name, a user password, and a screen name and have the date of the creation recorded. For the purposes of this very simple implementation, the password is not encrypted in the database. (This behavior is inherited from the User model.)
 * Create new recipes to share with others.
-* List and maintain posted recipes.
+* List and maintain their contributed recipes.
 * Tag recipes so they are easier to find.
 
 ### The cook is able to:
 * Create a unique user name, a user password, and a screen name and have the date they joined recorded. For the purposes of this very simple implementation, the password is not encrypted in the database. (This behavior is inherited from the User model.)
 * Choose a tag and see what recipes have that tag.
-* Try a recipe and have the date of the trial recorded.
-* Rate a recipe between 0 through 5 stars to share with others their opinion about it.
+* Try a recipe and have the date of the trial recorded; see what recipes they have tried and when they tried them
+* Rate a recipe between 1 through 5 stars to share with others their opinion about it.
 * See recipes ordered by the number of stars they have to focus on the best ones.
 * Search through recipes to find something with a particular ingredient or word.
 

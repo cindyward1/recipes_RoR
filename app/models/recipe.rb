@@ -17,4 +17,8 @@ class Recipe < ActiveRecord::Base
     end
     return_array
   end
+
+  def calculate_rating(new_rating)
+    return_rating = (self.rating * self.number_ratings + new_rating)/(self.number_ratings + 1)
+  end
 end

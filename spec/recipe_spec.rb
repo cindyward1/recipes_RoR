@@ -20,4 +20,11 @@ describe Recipe do
     tag_id_array = test_recipe.get_tags
     expect(tag_id_array).to eq [test_tag.id]
   end
+
+  it "calculates an updated rating based on the new rating and previous ratings" do
+    test_recipe = Recipe.new(:title => "Test Recipe", :rating => 1,
+                             :number_ratings => 1)
+    new_rating = 5
+    expect(test_recipe.calculate_rating(new_rating)).to eq 3
+  end
 end
