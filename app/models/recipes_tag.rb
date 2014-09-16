@@ -1,4 +1,4 @@
-class RecipesTag do
+class RecipesTag < ActiveRecord::Base
   belongs_to :recipe
   belongs_to :tags
 end
